@@ -98,6 +98,35 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 .achv-desc{font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;}
 .achv-status{font-size:10px;color:#00ffb4;letter-spacing:1px;font-weight:700;}
 
+/* ABOUT SECTION */
+.about-section{padding:0 20px 30px;}
+.about-card{background:linear-gradient(135deg,rgba(0,255,180,0.1),rgba(255,77,141,0.08));border:1.5px solid rgba(0,255,180,0.2);border-radius:16px;padding:24px;text-align:center;margin-bottom:20px;}
+.about-logo{font-family:'Orbitron',monospace;font-size:18px;font-weight:900;background:linear-gradient(135deg,#00ffb4,#00b4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2.5px;margin-bottom:6px;}
+.about-tagline{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px;font-style:italic;}
+.about-version{display:inline-block;background:rgba(0,255,180,0.15);color:#00ffb4;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;}
+
+.about-info-block{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+.aib-title{font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:1px;font-weight:600;}
+.aib-value{font-size:13px;color:#fff;font-weight:700;}
+
+.about-desc{background:rgba(255,255,255,0.03);border-left:3px solid #ff4d8d;padding:14px 16px;border-radius:8px;margin:16px 0;}
+.about-desc p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:8px;}
+.about-desc p:last-child{margin-bottom:0;}
+
+.about-socials{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap;}
+.social-link{flex:1;min-width:90px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px;text-align:center;font-size:12px;color:rgba(255,255,255,0.7);cursor:pointer;transition:all 0.15s;font-weight:600;}
+.social-link:active{transform:scale(0.95);background:rgba(0,255,180,0.1);border-color:#00ffb4;color:#00ffb4;}
+
+.about-credits{text-align:center;padding:16px 0;margin-top:12px;border-top:1px solid rgba(255,255,255,0.06);}
+.credits-text{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:4px;}
+.credits-year{font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:1px;}
+
+.about-thanks{background:linear-gradient(135deg,rgba(255,77,141,0.1),rgba(180,125,255,0.08));border:1px solid rgba(255,77,141,0.2);border-radius:14px;padding:18px;text-align:center;margin-top:16px;}
+.thanks-icon{font-size:32px;margin-bottom:6px;}
+.thanks-text{font-size:14px;color:#fff;font-weight:700;margin-bottom:12px;}
+.rate-btn{background:linear-gradient(135deg,#ffd700,#ff9500);color:#0a0a0f;border:none;padding:10px 20px;border-radius:25px;font-family:'Orbitron',monospace;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;}
+.rate-btn:active{transform:scale(0.95);}
+
 /* GAME SCREENS */
 .game-screen{display:none;position:absolute;inset:0;background:#0a0a0f;z-index:20;flex-direction:column;}
 .game-screen.active{display:flex;}
@@ -259,6 +288,52 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 
   <div class="section-title">Achievements</div>
   <div class="achievements" id="achv-list"></div>
+
+  <div class="section-title">About</div>
+  <div class="about-section">
+    <div class="about-card">
+      <div class="about-logo">PIXELVERSE ARCADE</div>
+      <div class="about-tagline">Where reflexes meet style ⚡</div>
+      <div class="about-version">Version 1.0.0</div>
+    </div>
+
+    <div class="about-info-block">
+      <div class="aib-title">👨‍💻 Developer</div>
+      <div class="aib-value">Harish Batta</div>
+    </div>
+
+    <div class="about-info-block">
+      <div class="aib-title">💌 Contact</div>
+      <div class="aib-value">battaharish405@gmail.com</div>
+    </div>
+
+    <div class="about-info-block">
+      <div class="aib-title">📅 Released</div>
+      <div class="aib-value">May 2026</div>
+    </div>
+
+    <div class="about-desc">
+      <p>🎮 Pixelverse Arcade is a passion project bringing together fast-paced mini-games into one beautiful neon-themed app.</p>
+      <p>Built with ❤️ by Harish. This is just the beginning. More games, more challenges, and more fun coming soon!</p>
+    </div>
+
+    <div class="about-socials">
+      <a class="social-link" onclick="showToast('Coming soon on Instagram!')">📷 Instagram</a>
+      <a class="social-link" onclick="showToast('Coming soon on Twitter!')">🐦 Twitter</a>
+      <a class="social-link" onclick="showToast('Coming soon on YouTube!')">📺 YouTube</a>
+    </div>
+
+    <div class="about-credits">
+      <div class="credits-text">Made with passion ❤️</div>
+      <div class="credits-year">© 2026 Harish Batta · All rights reserved</div>
+    </div>
+
+    <div class="about-thanks">
+      <div class="thanks-icon">🙏</div>
+      <div class="thanks-text">Thank you for playing!</div>
+      <button class="rate-btn" onclick="showToast('⭐ Thanks! Rating coming on Play Store soon')">⭐ Rate this App</button>
+    </div>
+  </div>
 </div>
 
 <!-- BOTTOM NAV -->
