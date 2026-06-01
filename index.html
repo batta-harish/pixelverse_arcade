@@ -226,6 +226,57 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 .logout-btn{width:100%;background:rgba(255,77,141,0.1);border:1.5px solid rgba(255,77,141,0.3);color:#ff4d8d;padding:12px;border-radius:12px;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;cursor:pointer;margin-top:14px;transition:all 0.15s;}
 .logout-btn:active{transform:scale(0.97);background:rgba(255,77,141,0.2);}
 
+/* SNAKE GAME */
+#snake-zone{position:absolute;inset:60px 14px 14px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.snake-hud{display:flex;gap:10px;width:100%;}
+.snake-hud-card{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px;text-align:center;}
+.snake-hud-lbl{font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,0.4);text-transform:uppercase;}
+.snake-hud-val{font-family:'Orbitron',monospace;font-size:18px;font-weight:700;margin-top:2px;}
+
+#snake-canvas{background:rgba(0,0,0,0.5);border:2px solid rgba(0,255,180,0.3);border-radius:12px;display:block;max-width:100%;touch-action:none;}
+
+.snake-controls{display:grid;grid-template-columns:60px 60px 60px;grid-template-rows:60px 60px;gap:6px;margin-top:auto;}
+.snake-btn{background:rgba(0,255,180,0.1);border:1.5px solid rgba(0,255,180,0.3);border-radius:12px;color:#00ffb4;font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.snake-btn:active{background:rgba(0,255,180,0.3);transform:scale(0.92);}
+.snake-btn.up{grid-column:2;grid-row:1;}
+.snake-btn.left{grid-column:1;grid-row:2;}
+.snake-btn.down{grid-column:2;grid-row:2;}
+.snake-btn.right{grid-column:3;grid-row:2;}
+
+/* CONNECT 4 GAME */
+#c4-zone{position:absolute;inset:60px 14px 14px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.c4-players{display:flex;gap:10px;width:100%;}
+.c4-player{flex:1;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px;text-align:center;transition:all 0.2s;}
+.c4-player.active{border-color:var(--c);background:rgba(255,255,255,0.08);box-shadow:0 0 15px var(--c);}
+.c4-player-name{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.c4-player-disc{width:24px;height:24px;border-radius:50%;background:var(--c);margin:0 auto;box-shadow:0 0 10px var(--c);}
+
+.c4-board{background:#1e293b;border:2px solid rgba(255,255,255,0.1);border-radius:12px;padding:8px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px;width:100%;max-width:340px;aspect-ratio:7/6;}
+.c4-cell{background:#0a0a0f;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.15s;position:relative;overflow:hidden;}
+.c4-cell:active{background:rgba(255,255,255,0.05);}
+.c4-disc{width:88%;height:88%;border-radius:50%;animation:dropDisc 0.4s cubic-bezier(0.5,0,0.5,1.3);}
+@keyframes dropDisc{0%{transform:translateY(-200px);}60%{transform:translateY(0);}80%{transform:translateY(-10px);}100%{transform:translateY(0);}}
+.c4-disc.red{background:radial-gradient(circle at 30% 30%,#ff6b6b,#dc2626);box-shadow:0 0 12px rgba(255,107,107,0.5);}
+.c4-disc.yellow{background:radial-gradient(circle at 30% 30%,#fde047,#ca8a04);box-shadow:0 0 12px rgba(253,224,71,0.5);}
+.c4-cell.win .c4-disc{animation:winFlash 0.6s infinite;}
+@keyframes winFlash{0%,100%{transform:scale(1);}50%{transform:scale(1.1);box-shadow:0 0 25px #ffd700;}}
+
+.c4-status{font-family:'Orbitron',monospace;font-size:13px;font-weight:700;letter-spacing:2px;padding:6px 14px;background:rgba(0,255,180,0.1);border-radius:20px;border:1px solid rgba(0,255,180,0.3);color:#00ffb4;}
+
+/* GAME CATEGORY TABS */
+.cat-tabs{display:flex;gap:6px;padding:0 20px 14px;}
+.cat-tab{flex:1;padding:10px;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.08);border-radius:12px;cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.cat-tab:active{transform:scale(0.96);}
+.cat-tab.active{background:linear-gradient(135deg,rgba(0,255,180,0.15),rgba(0,180,255,0.08));border-color:#00ffb4;box-shadow:0 0 15px rgba(0,255,180,0.2);}
+.cat-tab-icon{font-size:18px;}
+.cat-tab-label{font-family:'Orbitron',monospace;font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.5);text-transform:uppercase;}
+.cat-tab.active .cat-tab-label{color:#00ffb4;}
+.cat-tab-count{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:1px;}
+.cat-tab.active .cat-tab-count{color:rgba(0,255,180,0.7);}
+
+/* Hidden games */
+.game-tile.hidden{display:none;}
+
 /* PROFILE EDIT MODAL */
 .edit-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
 .edit-overlay.active{display:flex;}
@@ -278,6 +329,49 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 .tp-input::placeholder{color:rgba(255,255,255,0.3);}
 .tp-start-btn{background:linear-gradient(135deg,#00ffb4,#ff4d8d);color:#0a0a0f;border:none;padding:14px;border-radius:12px;font-family:'Orbitron',monospace;font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;margin-top:10px;}
 .tp-start-btn:active{transform:scale(0.97);}
+
+/* NUMBER RUSH GAME */
+#nr-zone{position:absolute;inset:60px 14px 14px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.nr-info{display:flex;gap:8px;width:100%;}
+.nr-info-card{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px;text-align:center;}
+.nr-info-lbl{font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,0.4);text-transform:uppercase;}
+.nr-info-val{font-family:'Orbitron',monospace;font-size:18px;font-weight:700;margin-top:2px;}
+
+.nr-next{background:linear-gradient(135deg,rgba(0,255,180,0.15),rgba(0,180,255,0.1));border:2px solid #00ffb4;border-radius:14px;padding:10px 20px;text-align:center;width:100%;max-width:280px;}
+.nr-next-lbl{font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;}
+.nr-next-val{font-family:'Orbitron',monospace;font-size:32px;font-weight:900;color:#00ffb4;line-height:1;text-shadow:0 0 20px rgba(0,255,180,0.5);}
+
+.nr-grid{display:grid;gap:5px;width:100%;max-width:340px;aspect-ratio:1;background:rgba(0,0,0,0.3);padding:6px;border-radius:14px;border:1.5px solid rgba(255,255,255,0.08);}
+.nr-cell{background:linear-gradient(135deg,rgba(180,125,255,0.15),rgba(255,77,141,0.1));border:1.5px solid rgba(180,125,255,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-weight:700;cursor:pointer;transition:all 0.15s;color:#fff;}
+.nr-cell:not(.done):active{transform:scale(0.92);background:rgba(180,125,255,0.3);}
+.nr-cell.done{background:rgba(0,255,180,0.15);border-color:#00ffb4;color:#00ffb4;animation:nrPop 0.3s ease-out;opacity:0.6;cursor:not-allowed;}
+@keyframes nrPop{0%{transform:scale(1);}50%{transform:scale(1.15);background:rgba(0,255,180,0.5);box-shadow:0 0 20px rgba(0,255,180,0.8);}100%{transform:scale(1);}}
+.nr-cell.wrong{animation:nrShake 0.3s;background:rgba(255,77,141,0.3)!important;border-color:#ff4d8d!important;}
+@keyframes nrShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+
+.nr-grid.size-4{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);}
+.nr-grid.size-5{grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);}
+.nr-grid.size-6{grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,1fr);}
+
+.nr-grid.size-4 .nr-cell{font-size:24px;}
+.nr-grid.size-5 .nr-cell{font-size:18px;}
+.nr-grid.size-6 .nr-cell{font-size:14px;}
+
+/* NR Mode Setup */
+.nr-setup{padding:20px;display:flex;flex-direction:column;gap:14px;}
+.nr-setup-title{font-family:'Orbitron',monospace;font-size:14px;color:rgba(255,255,255,0.6);letter-spacing:2px;text-align:center;margin-bottom:6px;}
+.nr-modes{display:flex;flex-direction:column;gap:12px;}
+.nr-mode-card{background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.08);border-radius:14px;padding:18px;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+.nr-mode-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c);}
+.nr-mode-card:active{transform:scale(0.97);}
+.nr-mode-card:hover{border-color:var(--c);background:rgba(255,255,255,0.08);}
+.nr-mode-row{display:flex;align-items:center;gap:14px;}
+.nr-mode-icon{font-size:36px;}
+.nr-mode-info{flex:1;}
+.nr-mode-name{font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:var(--c);letter-spacing:1.5px;margin-bottom:2px;}
+.nr-mode-desc{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.4;}
+.nr-mode-best{text-align:right;font-family:'Orbitron',monospace;font-size:12px;color:rgba(255,255,255,0.5);}
+.nr-mode-best-val{font-size:16px;color:var(--c);font-weight:700;}
 
 /* TOAST */
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:rgba(0,255,180,0.95);color:#0a0a0f;padding:12px 22px;border-radius:30px;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;z-index:100;opacity:0;transition:all 0.3s;pointer-events:none;}
@@ -394,7 +488,7 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 <div class="screen" id="screen-profile">
   <div class="top-bar">
     <div class="tb-logo">PROFILE</div>
-    <div class="tb-actions"><div class="icon-btn" onclick="openEditProfile()">✏️</div></div>
+    <div class="tb-actions"><div class="icon-btn" onclick="openEditProfile()" title="Edit profile">⚙️</div></div>
   </div>
   <div class="profile-hdr">
     <div class="avatar">P1</div>
@@ -561,6 +655,114 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
   </div>
 </div>
 
+<!-- NUMBER RUSH - SETUP SCREEN -->
+<div class="game-screen" id="game-nr-setup">
+  <div class="game-header">
+    <button class="back-btn" onclick="exitGame('nr-setup')">←</button>
+    <div class="gh-title">🔢 NUMBER RUSH</div>
+    <div class="gh-score">SETUP</div>
+  </div>
+  <div class="game-body">
+    <div class="nr-setup">
+      <div class="nr-setup-title">⚡ TAP NUMBERS IN ORDER ⚡</div>
+      <div class="nr-modes">
+        <div class="nr-mode-card" style="--c:#00ffb4" onclick="startNR('easy')">
+          <div class="nr-mode-row">
+            <div class="nr-mode-icon">🐢</div>
+            <div class="nr-mode-info">
+              <div class="nr-mode-name">EASY · 1-16</div>
+              <div class="nr-mode-desc">4×4 grid. Perfect for warming up.</div>
+            </div>
+            <div class="nr-mode-best">
+              <div>BEST</div>
+              <div class="nr-mode-best-val" id="nr-best-easy">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="nr-mode-card" style="--c:#00b4ff" onclick="startNR('medium')">
+          <div class="nr-mode-row">
+            <div class="nr-mode-icon">🎯</div>
+            <div class="nr-mode-info">
+              <div class="nr-mode-name">MEDIUM · 1-25</div>
+              <div class="nr-mode-desc">5×5 grid. The classic challenge.</div>
+            </div>
+            <div class="nr-mode-best">
+              <div>BEST</div>
+              <div class="nr-mode-best-val" id="nr-best-medium">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="nr-mode-card" style="--c:#ff4d8d" onclick="startNR('hard')">
+          <div class="nr-mode-row">
+            <div class="nr-mode-icon">🔥</div>
+            <div class="nr-mode-info">
+              <div class="nr-mode-name">HARD · 1-36</div>
+              <div class="nr-mode-desc">6×6 grid. Only for pros.</div>
+            </div>
+            <div class="nr-mode-best">
+              <div>BEST</div>
+              <div class="nr-mode-best-val" id="nr-best-hard">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="nr-mode-card" style="--c:#b47dff" onclick="startNR('chaos')">
+          <div class="nr-mode-row">
+            <div class="nr-mode-icon">🌪️</div>
+            <div class="nr-mode-info">
+              <div class="nr-mode-name">CHAOS · 1-25</div>
+              <div class="nr-mode-desc">Numbers shuffle every 3 seconds!</div>
+            </div>
+            <div class="nr-mode-best">
+              <div>BEST</div>
+              <div class="nr-mode-best-val" id="nr-best-chaos">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NUMBER RUSH - GAME SCREEN -->
+<div class="game-screen" id="game-nr">
+  <div class="game-header">
+    <button class="back-btn" onclick="exitGame('nr')">←</button>
+    <div class="gh-title">🔢 NUMBER RUSH</div>
+    <div class="gh-score" id="nr-mode-label">EASY</div>
+  </div>
+  <div class="game-body">
+    <div id="nr-zone">
+      <div class="nr-info">
+        <div class="nr-info-card"><div class="nr-info-lbl">Time</div><div class="nr-info-val" style="color:#00ffb4" id="nr-time">0.0s</div></div>
+        <div class="nr-info-card"><div class="nr-info-lbl">Progress</div><div class="nr-info-val" style="color:#00b4ff" id="nr-prog">0/16</div></div>
+        <div class="nr-info-card"><div class="nr-info-lbl">Mistakes</div><div class="nr-info-val" style="color:#ff4d8d" id="nr-mist">0</div></div>
+      </div>
+
+      <div class="nr-next">
+        <div class="nr-next-lbl">Next Number</div>
+        <div class="nr-next-val" id="nr-next">1</div>
+      </div>
+
+      <div class="nr-grid size-4" id="nr-grid"></div>
+    </div>
+
+    <div class="countdown" id="nr-cd"></div>
+
+    <div class="game-over" id="nr-over">
+      <div class="go-title" style="color:#00b4ff">🎉 COMPLETED!</div>
+      <div class="go-new" id="nr-new">🏆 NEW BEST</div>
+      <div class="go-grade" id="nr-grade">—</div>
+      <div class="go-score" id="nr-final">0.0s</div>
+      <div class="go-stat" id="nr-stat-line">Mistakes: 0</div>
+      <div class="go-actions">
+        <button class="go-btn primary" onclick="startNR(nrGame.mode)">▶ PLAY AGAIN</button>
+        <button class="go-btn share" onclick="showShare('Number Rush',nrGame.timeStr,nrGame.grade)">📤 SHARE TIME</button>
+        <button class="go-btn menu" onclick="exitGame('nr')">⌂ MENU</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- TIC TAC TOE - SETUP SCREEN -->
 <div class="game-screen" id="game-ttt-setup">
   <div class="game-header">
@@ -659,11 +861,33 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 
 <script>
 // GLOBAL STATE
-const STORE={streak:0,total:0,played:0,best:{reflex:0,memory:0,color:0,ttt:0},achievements:{first:false,combo10:false,streak3:false,memMaster:false,colorPro:false,allGames:false,playedGames:new Set(),tttWin:false},user:null,tttHistory:{p1:'',p2:'',p1Wins:0,p2Wins:0,draws:0}};
+const STORE={streak:0,total:0,played:0,best:{reflex:0,memory:0,color:0,ttt:0,nr:0,nr_easy:0,nr_medium:0,nr_hard:0,nr_chaos:0},achievements:{first:false,combo10:false,streak3:false,memMaster:false,colorPro:false,allGames:false,playedGames:new Set(),tttWin:false,nrAce:false,nrPerfect:false},user:null,tttHistory:{p1:'',p2:'',p1Wins:0,p2Wins:0,draws:0}};
 
 let gameState={};
 let timers=[];
 let tttGame={};
+
+// ============ GAME CATEGORY FILTER ============
+function filterGames(category,btn){
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  
+  const tiles=document.querySelectorAll('.game-tile');
+  let visibleCount=0;
+  tiles.forEach(tile=>{
+    const type=tile.dataset.type;
+    if(category==='all'||type===category){
+      tile.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      tile.classList.add('hidden');
+    }
+  });
+  
+  // Update counter
+  const countEl=document.getElementById('arcade-count');
+  if(countEl) countEl.textContent=visibleCount+' game'+(visibleCount!==1?'s':'');
+}
 
 // ============ EDIT PROFILE ============
 function openEditProfile(){
@@ -702,6 +926,222 @@ function saveProfileName(){
   renderProfile();
   updateHome();
   showToast('✅ Name updated to '+newName);
+}
+
+// ============ NUMBER RUSH ============
+const NR_MODES={
+  easy:{size:4,total:16,color:'#00ffb4',chaos:false},
+  medium:{size:5,total:25,color:'#00b4ff',chaos:false},
+  hard:{size:6,total:36,color:'#ff4d8d',chaos:false},
+  chaos:{size:5,total:25,color:'#b47dff',chaos:true}
+};
+
+let nrGame={};
+
+function openNRSetup(){
+  document.querySelectorAll('.game-screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('game-nr-setup').classList.add('active');
+  // Update best times
+  const bestKey={easy:'nr-best-easy',medium:'nr-best-medium',hard:'nr-best-hard',chaos:'nr-best-chaos'};
+  Object.keys(bestKey).forEach(mode=>{
+    const el=document.getElementById(bestKey[mode]);
+    const best=STORE.best['nr_'+mode];
+    if(el) el.textContent=best?best.toFixed(1)+'s':'—';
+  });
+}
+
+function startNR(mode){
+  clearAllTimers();
+  const config=NR_MODES[mode];
+  nrGame={
+    mode:mode,
+    config:config,
+    numbers:[],
+    next:1,
+    startTime:0,
+    elapsed:0,
+    mistakes:0,
+    gameOver:false
+  };
+  
+  STORE.achievements.playedGames.add('nr');
+  if(STORE.achievements.playedGames.size>=3) unlockAchv('allGames');
+  unlockAchv('first');
+  STORE.played++;
+  saveData();
+  
+  document.querySelectorAll('.game-screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('game-nr').classList.add('active');
+  document.getElementById('nr-over').classList.remove('active');
+  document.getElementById('nr-mode-label').textContent=mode.toUpperCase();
+  document.getElementById('nr-prog').textContent='0/'+config.total;
+  document.getElementById('nr-time').textContent='0.0s';
+  document.getElementById('nr-mist').textContent='0';
+  document.getElementById('nr-next').textContent='1';
+  document.getElementById('nr-next').style.color=config.color;
+  
+  generateNRBoard();
+  
+  // Countdown
+  const cd=document.getElementById('nr-cd');
+  let c=3;cd.style.opacity='1';cd.textContent=c;
+  const ci=setInterval(()=>{
+    c--;
+    if(c<=0){
+      clearInterval(ci);
+      cd.style.opacity='0';
+      runNR();
+    } else if(c===0){
+      cd.textContent='GO!';
+    } else {
+      cd.textContent=c;
+    }
+  },600);
+  timers.push(ci);
+}
+
+function generateNRBoard(){
+  const config=nrGame.config;
+  const grid=document.getElementById('nr-grid');
+  grid.className='nr-grid size-'+config.size;
+  
+  // Create shuffled numbers
+  const nums=Array.from({length:config.total},(_,i)=>i+1);
+  for(let i=nums.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [nums[i],nums[j]]=[nums[j],nums[i]];
+  }
+  nrGame.numbers=nums;
+  
+  // Render grid
+  grid.innerHTML=nums.map((n,i)=>{
+    const done=n<nrGame.next;
+    return `<div class="nr-cell ${done?'done':''}" data-num="${n}" data-i="${i}" onclick="tapNR(${n},this)">${n}</div>`;
+  }).join('');
+}
+
+function runNR(){
+  nrGame.startTime=Date.now();
+  
+  // Timer update
+  const tick=setInterval(()=>{
+    if(nrGame.gameOver){clearInterval(tick);return;}
+    nrGame.elapsed=(Date.now()-nrGame.startTime)/1000;
+    document.getElementById('nr-time').textContent=nrGame.elapsed.toFixed(1)+'s';
+  },100);
+  timers.push(tick);
+  
+  // Chaos mode: shuffle every 3 seconds
+  if(nrGame.config.chaos){
+    const shuffleTimer=setInterval(()=>{
+      if(nrGame.gameOver){clearInterval(shuffleTimer);return;}
+      reshuffleNR();
+    },3000);
+    timers.push(shuffleTimer);
+  }
+}
+
+function reshuffleNR(){
+  // Shuffle only the remaining numbers (keep done ones in place)
+  const remaining=[];
+  const positions=[];
+  nrGame.numbers.forEach((n,i)=>{
+    if(n>=nrGame.next){
+      remaining.push(n);
+      positions.push(i);
+    }
+  });
+  
+  for(let i=remaining.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [remaining[i],remaining[j]]=[remaining[j],remaining[i]];
+  }
+  
+  positions.forEach((pos,idx)=>{
+    nrGame.numbers[pos]=remaining[idx];
+  });
+  
+  // Animate re-render
+  const grid=document.getElementById('nr-grid');
+  grid.style.transition='opacity 0.15s';
+  grid.style.opacity='0.4';
+  setTimeout(()=>{
+    grid.innerHTML=nrGame.numbers.map((n,i)=>{
+      const done=n<nrGame.next;
+      return `<div class="nr-cell ${done?'done':''}" data-num="${n}" data-i="${i}" onclick="tapNR(${n},this)">${n}</div>`;
+    }).join('');
+    grid.style.opacity='1';
+  },150);
+}
+
+function tapNR(num,el){
+  if(nrGame.gameOver) return;
+  if(el.classList.contains('done')) return;
+  
+  if(num===nrGame.next){
+    el.classList.add('done');
+    nrGame.next++;
+    document.getElementById('nr-prog').textContent=(nrGame.next-1)+'/'+nrGame.config.total;
+    document.getElementById('nr-next').textContent=nrGame.next>nrGame.config.total?'✓':nrGame.next;
+    
+    if(nrGame.next>nrGame.config.total){
+      endNR();
+    }
+  } else {
+    nrGame.mistakes++;
+    document.getElementById('nr-mist').textContent=nrGame.mistakes;
+    el.classList.add('wrong');
+    setTimeout(()=>el.classList.remove('wrong'),300);
+  }
+}
+
+function endNR(){
+  nrGame.gameOver=true;
+  clearAllTimers();
+  
+  const time=nrGame.elapsed;
+  nrGame.timeStr=time.toFixed(1)+'s';
+  
+  // Grade based on mode + time + mistakes
+  const benchmarks={
+    easy:{S:15,A:25,B:40,C:60},
+    medium:{S:25,A:40,B:60,C:90},
+    hard:{S:45,A:75,B:110,C:150},
+    chaos:{S:35,A:55,B:80,C:120}
+  };
+  const bench=benchmarks[nrGame.mode];
+  const adjusted=time+nrGame.mistakes*2; // 2 sec penalty per mistake
+  const grade=adjusted<=bench.S?'S':adjusted<=bench.A?'A':adjusted<=bench.B?'B':adjusted<=bench.C?'C':'D';
+  nrGame.grade=grade;
+  
+  const colors={S:'#00ffb4',A:'#00b4ff',B:'#b47dff',C:'#ffb347',D:'#ff4d8d'};
+  
+  // Check if new best (lower is better!)
+  const bestKey='nr_'+nrGame.mode;
+  const currentBest=STORE.best[bestKey];
+  const isNew=!currentBest||time<currentBest;
+  if(isNew){
+    STORE.best[bestKey]=time;
+    STORE.best.nr=Math.min(STORE.best.nr||999,time);
+  }
+  
+  // Award points (faster = more points)
+  const points=Math.max(100,Math.round(1000-time*5-nrGame.mistakes*20));
+  STORE.total+=points;
+  STORE.streak=Math.max(STORE.streak,1);
+  
+  if(grade==='S') unlockAchv('nrAce');
+  if(nrGame.mistakes===0) unlockAchv('nrPerfect');
+  
+  saveData();
+  
+  document.getElementById('nr-grade').textContent=grade;
+  document.getElementById('nr-grade').style.color=colors[grade];
+  document.getElementById('nr-grade').style.textShadow=`0 0 30px ${colors[grade]}66`;
+  document.getElementById('nr-final').textContent=nrGame.timeStr;
+  document.getElementById('nr-stat-line').textContent=`Mode: ${nrGame.mode.toUpperCase()} · Mistakes: ${nrGame.mistakes} · +${points} pts`;
+  document.getElementById('nr-new').classList.toggle('show',isNew);
+  document.getElementById('nr-over').classList.add('active');
 }
 
 // ============ TIC TAC TOE ============
@@ -1009,6 +1449,11 @@ function updateHome(){
   document.getElementById('best-color').textContent=STORE.best.color;
   const tttEl=document.getElementById('best-ttt');
   if(tttEl) tttEl.textContent=STORE.best.ttt||0;
+  const nrEl=document.getElementById('best-nr');
+  if(nrEl){
+    const bestNR=STORE.best.nr_medium||STORE.best.nr_easy||STORE.best.nr_hard||STORE.best.nr_chaos;
+    nrEl.textContent=bestNR?bestNR.toFixed(1)+'s':'—';
+  }
   if(STORE.user){
     const greeting=document.getElementById('wc-greet-text');
     const name=document.getElementById('wc-name-text');
@@ -1059,6 +1504,8 @@ function renderProfile(){
     {id:'combo10',icon:'🔥',name:'Combo Master',desc:'Hit a 10x combo in Reflex Rush',got:STORE.achievements.combo10},
     {id:'memMaster',icon:'🧠',name:'Memory Master',desc:'Complete Memory Flip under 30s',got:STORE.achievements.memMaster},
     {id:'colorPro',icon:'🎨',name:'Color Pro',desc:'Get a 15+ streak in Color Tap',got:STORE.achievements.colorPro},
+    {id:'nrAce',icon:'🔢',name:'Number Ace',desc:'Get S-grade in Number Rush',got:STORE.achievements.nrAce},
+    {id:'nrPerfect',icon:'💯',name:'Flawless',desc:'Finish Number Rush with 0 mistakes',got:STORE.achievements.nrPerfect},
     {id:'tttWin',icon:'⭕',name:'Champion',desc:'Win your first Tic Tac Toe match',got:STORE.achievements.tttWin},
     {id:'allGames',icon:'🌟',name:'All Rounder',desc:'Play all games',got:STORE.achievements.allGames},
     {id:'streak3',icon:'📅',name:'Dedicated',desc:'Reach a 3-day streak',got:STORE.achievements.streak3},
@@ -1086,6 +1533,11 @@ function exitGame(g){
     document.getElementById('game-ttt-setup').classList.remove('active');
   } else if(g==='ttt'){
     document.getElementById('game-ttt').classList.remove('active');
+  } else if(g==='nr-setup'){
+    document.getElementById('game-nr-setup').classList.remove('active');
+  } else if(g==='nr'){
+    document.getElementById('game-nr').classList.remove('active');
+    if(nrGame) nrGame.gameOver=true;
   } else {
     document.getElementById('game-'+g).classList.remove('active');
   }
