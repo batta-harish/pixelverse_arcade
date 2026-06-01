@@ -186,6 +186,99 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 /* COUNTDOWN */
 .countdown{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:80px;font-weight:900;color:#00ffb4;text-shadow:0 0 40px rgba(0,255,180,0.5);z-index:40;pointer-events:none;opacity:0;}
 
+/* LOGIN SCREEN */
+.login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#0a0a0f,#1a0a2a);display:none;align-items:center;justify-content:center;z-index:1000;padding:24px;flex-direction:column;}
+.login-screen.active{display:flex;}
+.login-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,180,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,180,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+.login-content{position:relative;z-index:2;width:100%;max-width:380px;}
+.login-logo{font-family:'Orbitron',monospace;font-size:32px;font-weight:900;background:linear-gradient(135deg,#00ffb4,#00b4ff,#ff4d8d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:4px;text-align:center;margin-bottom:8px;text-shadow:0 0 30px rgba(0,255,180,0.3);}
+.login-tag{font-size:13px;color:rgba(255,255,255,0.5);text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:32px;}
+.login-emoji{font-size:64px;text-align:center;margin-bottom:20px;animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.login-title{font-family:'Orbitron',monospace;font-size:20px;font-weight:700;color:#fff;text-align:center;margin-bottom:8px;letter-spacing:1.5px;}
+.login-sub{font-size:13px;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:28px;}
+
+.login-form{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;}
+.login-input{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 16px;color:#fff;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;outline:none;transition:all 0.2s;}
+.login-input::placeholder{color:rgba(255,255,255,0.3);font-weight:400;}
+.login-input:focus{border-color:#00ffb4;background:rgba(0,255,180,0.05);}
+.login-input.error{border-color:#ff4d8d;animation:shake 0.3s;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+.login-error{font-size:12px;color:#ff4d8d;text-align:center;height:16px;margin-bottom:8px;}
+
+.login-btn{padding:14px;border:none;border-radius:12px;font-family:'Orbitron',monospace;font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:all 0.15s;}
+.login-btn.primary{background:linear-gradient(135deg,#00ffb4,#00b4ff);color:#0a0a0f;box-shadow:0 4px 15px rgba(0,255,180,0.3);}
+.login-btn.primary:active{transform:translateY(2px);box-shadow:0 2px 8px rgba(0,255,180,0.3);}
+.login-btn.guest{background:rgba(255,255,255,0.06);color:#fff;border:1.5px solid rgba(255,255,255,0.12);}
+.login-btn.guest:active{background:rgba(255,255,255,0.1);}
+
+.login-divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:rgba(255,255,255,0.3);font-size:11px;letter-spacing:2px;}
+.login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.1);}
+
+.login-footer{text-align:center;font-size:11px;color:rgba(255,255,255,0.3);margin-top:24px;letter-spacing:1px;}
+.login-footer .highlight{color:#00ffb4;font-weight:700;}
+
+/* User Greeting in Welcome Card */
+.user-info-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.user-avatar-mini{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00ffb4,#00b4ff);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-weight:900;font-size:14px;color:#0a0a0f;}
+
+/* Logout button in profile */
+.logout-btn{width:100%;background:rgba(255,77,141,0.1);border:1.5px solid rgba(255,77,141,0.3);color:#ff4d8d;padding:12px;border-radius:12px;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;cursor:pointer;margin-top:14px;transition:all 0.15s;}
+.logout-btn:active{transform:scale(0.97);background:rgba(255,77,141,0.2);}
+
+/* PROFILE EDIT MODAL */
+.edit-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
+.edit-overlay.active{display:flex;}
+.edit-modal{background:linear-gradient(135deg,#1a0a2e,#0a0a0f);border:1.5px solid rgba(0,255,180,0.3);border-radius:16px;padding:24px;width:100%;max-width:340px;}
+.edit-title{font-family:'Orbitron',monospace;font-size:16px;font-weight:700;color:#00ffb4;letter-spacing:2px;margin-bottom:6px;text-align:center;}
+.edit-sub{font-size:12px;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:18px;}
+.edit-input{width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;outline:none;margin-bottom:6px;}
+.edit-input:focus{border-color:#00ffb4;background:rgba(0,255,180,0.05);}
+.edit-input.error{border-color:#ff4d8d;animation:shake 0.3s;}
+.edit-error{font-size:11px;color:#ff4d8d;height:14px;margin-bottom:14px;text-align:center;}
+.edit-actions{display:flex;gap:8px;}
+.edit-btn{flex:1;padding:12px;border:none;border-radius:10px;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;cursor:pointer;}
+.edit-btn.save{background:linear-gradient(135deg,#00ffb4,#00b4ff);color:#0a0a0f;}
+.edit-btn.cancel{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.15);}
+
+/* TIC TAC TOE GAME */
+#ttt-zone{position:absolute;inset:60px 14px 14px;display:flex;flex-direction:column;align-items:center;gap:14px;}
+.ttt-players{display:flex;gap:10px;width:100%;}
+.ttt-player{flex:1;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px;text-align:center;transition:all 0.2s;}
+.ttt-player.active{border-color:var(--c);background:rgba(255,255,255,0.08);box-shadow:0 0 15px var(--c);}
+.ttt-player-name{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+.ttt-player-symbol{font-family:'Orbitron',monospace;font-size:24px;font-weight:900;color:var(--c);}
+.ttt-player-wins{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;margin-top:2px;}
+
+.ttt-status{font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:#00ffb4;letter-spacing:2px;padding:6px 14px;background:rgba(0,255,180,0.1);border-radius:20px;border:1px solid rgba(0,255,180,0.3);}
+
+.ttt-board{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:100%;max-width:300px;aspect-ratio:1;background:rgba(0,0,0,0.3);padding:8px;border-radius:14px;border:2px solid rgba(255,255,255,0.1);}
+.ttt-cell{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:48px;font-weight:900;cursor:pointer;transition:all 0.15s;}
+.ttt-cell:not(.filled):active{background:rgba(255,255,255,0.1);}
+.ttt-cell.filled{cursor:not-allowed;animation:cellPlace 0.3s ease-out;}
+@keyframes cellPlace{0%{transform:scale(0) rotate(-180deg);}100%{transform:scale(1) rotate(0deg);}}
+.ttt-cell.x{color:#00ffb4;text-shadow:0 0 15px rgba(0,255,180,0.6);}
+.ttt-cell.o{color:#ff4d8d;text-shadow:0 0 15px rgba(255,77,141,0.6);}
+.ttt-cell.win{background:rgba(255,215,0,0.2);border-color:#ffd700;animation:winPulse 0.6s infinite;}
+@keyframes winPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,0.7);}50%{box-shadow:0 0 0 8px rgba(255,215,0,0);}}
+
+.ttt-controls{display:flex;gap:10px;width:100%;}
+.ttt-btn{flex:1;padding:12px;border:none;border-radius:12px;font-family:'Orbitron',monospace;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;}
+.ttt-btn.reset{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.15);}
+.ttt-btn.new{background:linear-gradient(135deg,#00ffb4,#00b4ff);color:#0a0a0f;}
+
+/* 2P SETUP SCREEN */
+.tp-setup{padding:20px;display:flex;flex-direction:column;gap:14px;}
+.tp-setup-title{font-family:'Orbitron',monospace;font-size:14px;color:rgba(255,255,255,0.6);letter-spacing:2px;text-align:center;margin-bottom:6px;}
+.tp-input-group{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px 14px;}
+.tp-symbol{font-family:'Orbitron',monospace;font-size:28px;font-weight:900;width:36px;text-align:center;}
+.tp-symbol.x{color:#00ffb4;}
+.tp-symbol.o{color:#ff4d8d;}
+.tp-input{flex:1;background:transparent;border:none;color:#fff;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;outline:none;}
+.tp-input::placeholder{color:rgba(255,255,255,0.3);}
+.tp-start-btn{background:linear-gradient(135deg,#00ffb4,#ff4d8d);color:#0a0a0f;border:none;padding:14px;border-radius:12px;font-family:'Orbitron',monospace;font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;margin-top:10px;}
+.tp-start-btn:active{transform:scale(0.97);}
+
 /* TOAST */
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:rgba(0,255,180,0.95);color:#0a0a0f;padding:12px 22px;border-radius:30px;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;z-index:100;opacity:0;transition:all 0.3s;pointer-events:none;}
 .toast.show{opacity:1;bottom:100px;}
@@ -203,6 +296,35 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 </style>
 
 <div id="app">
+
+<!-- LOGIN SCREEN -->
+<div class="login-screen active" id="login-screen">
+  <div class="login-bg"></div>
+  <div class="login-content">
+    <div class="login-logo">PIXELVERSE</div>
+    <div class="login-tag">ARCADE</div>
+    <div class="login-emoji">🎮</div>
+    <div class="login-title">Welcome, Player!</div>
+    <div class="login-sub">Sign in to save your scores and streaks</div>
+
+    <div class="login-form">
+      <input type="text" class="login-input" id="login-name" placeholder="Your Name (e.g., Harish)" maxlength="20" autocomplete="off">
+      <input type="email" class="login-input" id="login-email" placeholder="Email (e.g., you@gmail.com)" autocomplete="off">
+    </div>
+    <div class="login-error" id="login-err"></div>
+
+    <button class="login-btn primary" onclick="handleEmailLogin()">▶ START PLAYING</button>
+
+    <div class="login-divider">OR</div>
+
+    <button class="login-btn guest" onclick="handleGuestLogin()">👤 CONTINUE AS GUEST</button>
+
+    <div class="login-footer">
+      Your progress is saved <span class="highlight">locally on your device</span><br>
+      No spam · No password · 100% Free
+    </div>
+  </div>
+</div>
 
 <!-- HOME SCREEN -->
 <div class="screen active" id="screen-home">
@@ -272,7 +394,7 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 <div class="screen" id="screen-profile">
   <div class="top-bar">
     <div class="tb-logo">PROFILE</div>
-    <div class="tb-actions"><div class="icon-btn" onclick="showToast('✏️ Edit profile coming soon')">✏️</div></div>
+    <div class="tb-actions"><div class="icon-btn" onclick="openEditProfile()">✏️</div></div>
   </div>
   <div class="profile-hdr">
     <div class="avatar">P1</div>
@@ -333,6 +455,8 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
       <div class="thanks-text">Thank you for playing!</div>
       <button class="rate-btn" onclick="showToast('⭐ Thanks! Rating coming on Play Store soon')">⭐ Rate this App</button>
     </div>
+
+    <button class="logout-btn" onclick="logout()">🚪 LOGOUT</button>
   </div>
 </div>
 
@@ -437,7 +561,88 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
   </div>
 </div>
 
+<!-- TIC TAC TOE - SETUP SCREEN -->
+<div class="game-screen" id="game-ttt-setup">
+  <div class="game-header">
+    <button class="back-btn" onclick="exitGame('ttt-setup')">←</button>
+    <div class="gh-title">⭕ TIC TAC TOE</div>
+    <div class="gh-score">2P</div>
+  </div>
+  <div class="game-body">
+    <div class="tp-setup">
+      <div class="tp-setup-title">Enter Player Names</div>
+      <div class="tp-input-group">
+        <div class="tp-symbol x">X</div>
+        <input type="text" class="tp-input" id="ttt-p1" placeholder="Player 1 Name" maxlength="15" autocomplete="off">
+      </div>
+      <div class="tp-input-group">
+        <div class="tp-symbol o">O</div>
+        <input type="text" class="tp-input" id="ttt-p2" placeholder="Player 2 Name" maxlength="15" autocomplete="off">
+      </div>
+      <button class="tp-start-btn" onclick="startTTT()">⚔️ START BATTLE</button>
+    </div>
+  </div>
+</div>
+
+<!-- TIC TAC TOE - GAME SCREEN -->
+<div class="game-screen" id="game-ttt">
+  <div class="game-header">
+    <button class="back-btn" onclick="exitGame('ttt')">←</button>
+    <div class="gh-title">⭕ TIC TAC TOE</div>
+    <div class="gh-score" id="ttt-round">R1</div>
+  </div>
+  <div class="game-body">
+    <div id="ttt-zone">
+      <div class="ttt-players">
+        <div class="ttt-player" id="ttt-player1" style="--c:#00ffb4">
+          <div class="ttt-player-name" id="ttt-p1-name">Player 1</div>
+          <div class="ttt-player-symbol">X</div>
+          <div class="ttt-player-wins"><span id="ttt-p1-wins">0</span> wins</div>
+        </div>
+        <div class="ttt-player" id="ttt-player2" style="--c:#ff4d8d">
+          <div class="ttt-player-name" id="ttt-p2-name">Player 2</div>
+          <div class="ttt-player-symbol">O</div>
+          <div class="ttt-player-wins"><span id="ttt-p2-wins">0</span> wins</div>
+        </div>
+      </div>
+
+      <div class="ttt-status" id="ttt-status">X's TURN</div>
+
+      <div class="ttt-board" id="ttt-board"></div>
+
+      <div class="ttt-controls">
+        <button class="ttt-btn reset" onclick="resetTTT()">🔄 NEW ROUND</button>
+        <button class="ttt-btn new" onclick="exitGame('ttt');openTTTSetup();">👥 CHANGE PLAYERS</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT PROFILE MODAL -->
+<div class="edit-overlay" id="edit-overlay">
+  <div class="edit-modal">
+    <div class="edit-title">✏️ EDIT PROFILE</div>
+    <div class="edit-sub">This name will appear on the leaderboard</div>
+    <input type="text" class="edit-input" id="edit-name" placeholder="Your display name" maxlength="20">
+    <div class="edit-error" id="edit-err"></div>
+    <div class="edit-actions">
+      <button class="edit-btn cancel" onclick="closeEditProfile()">CANCEL</button>
+      <button class="edit-btn save" onclick="saveProfileName()">SAVE</button>
+    </div>
+  </div>
+</div>
+
 <!-- SHARE OVERLAY -->
+<div class="share-overlay" id="share-overlay">
+  <div class="share-card">
+    <div class="sc-logo">PIXELVERSE</div>
+    <div class="sc-game" id="sc-game">REFLEX RUSH</div>
+    <div class="sc-score" id="sc-score">0</div>
+    <div class="sc-grade" id="sc-grade">Grade: —</div>
+    <div class="sc-challenge">Can you beat my score?</div>
+  </div>
+  <button class="share-close" onclick="closeShare()">CLOSE</button>
+</div>
 <div class="share-overlay" id="share-overlay">
   <div class="share-card">
     <div class="sc-logo">PIXELVERSE</div>
@@ -454,10 +659,317 @@ html,body{height:100%;width:100%;background:#0a0a0f;font-family:'Rajdhani',sans-
 
 <script>
 // GLOBAL STATE
-const STORE={streak:0,total:0,played:0,best:{reflex:0,memory:0,color:0},achievements:{first:false,combo10:false,streak3:false,memMaster:false,colorPro:false,allGames:false,playedGames:new Set()}};
+const STORE={streak:0,total:0,played:0,best:{reflex:0,memory:0,color:0,ttt:0},achievements:{first:false,combo10:false,streak3:false,memMaster:false,colorPro:false,allGames:false,playedGames:new Set(),tttWin:false},user:null,tttHistory:{p1:'',p2:'',p1Wins:0,p2Wins:0,draws:0}};
 
 let gameState={};
 let timers=[];
+let tttGame={};
+
+// ============ EDIT PROFILE ============
+function openEditProfile(){
+  if(!STORE.user) return;
+  document.getElementById('edit-name').value=STORE.user.name;
+  document.getElementById('edit-err').textContent='';
+  document.getElementById('edit-overlay').classList.add('active');
+  setTimeout(()=>document.getElementById('edit-name').focus(),100);
+}
+
+function closeEditProfile(){
+  document.getElementById('edit-overlay').classList.remove('active');
+}
+
+function saveProfileName(){
+  const newName=document.getElementById('edit-name').value.trim();
+  const errEl=document.getElementById('edit-err');
+  const inp=document.getElementById('edit-name');
+  errEl.textContent='';
+  inp.classList.remove('error');
+  
+  if(!newName||newName.length<2){
+    errEl.textContent='⚠️ Name must be at least 2 characters';
+    inp.classList.add('error');
+    return;
+  }
+  if(newName.length>20){
+    errEl.textContent='⚠️ Name too long (max 20 chars)';
+    inp.classList.add('error');
+    return;
+  }
+  
+  STORE.user.name=newName;
+  saveData();
+  closeEditProfile();
+  renderProfile();
+  updateHome();
+  showToast('✅ Name updated to '+newName);
+}
+
+// ============ TIC TAC TOE ============
+function openTTTSetup(){
+  document.querySelectorAll('.game-screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('game-ttt-setup').classList.add('active');
+  // Pre-fill with previous players if exists
+  if(STORE.tttHistory.p1){
+    document.getElementById('ttt-p1').value=STORE.tttHistory.p1;
+    document.getElementById('ttt-p2').value=STORE.tttHistory.p2;
+  } else if(STORE.user){
+    document.getElementById('ttt-p1').value=STORE.user.name;
+    document.getElementById('ttt-p2').value='';
+  }
+}
+
+function startTTT(){
+  const p1=document.getElementById('ttt-p1').value.trim()||'Player 1';
+  const p2=document.getElementById('ttt-p2').value.trim()||'Player 2';
+  
+  STORE.tttHistory.p1=p1;
+  STORE.tttHistory.p2=p2;
+  if(p1!==tttGame.p1Name||p2!==tttGame.p2Name){
+    STORE.tttHistory.p1Wins=0;
+    STORE.tttHistory.p2Wins=0;
+    STORE.tttHistory.draws=0;
+  }
+  saveData();
+  
+  tttGame={
+    board:['','','','','','','','',''],
+    turn:'X',
+    p1Name:p1,
+    p2Name:p2,
+    p1Wins:STORE.tttHistory.p1Wins,
+    p2Wins:STORE.tttHistory.p2Wins,
+    round:STORE.tttHistory.p1Wins+STORE.tttHistory.p2Wins+STORE.tttHistory.draws+1,
+    gameOver:false
+  };
+  
+  STORE.achievements.playedGames.add('ttt');
+  if(STORE.achievements.playedGames.size>=3) unlockAchv('allGames');
+  unlockAchv('first');
+  STORE.played++;
+  saveData();
+  
+  document.querySelectorAll('.game-screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('game-ttt').classList.add('active');
+  renderTTT();
+}
+
+function renderTTT(){
+  document.getElementById('ttt-p1-name').textContent=tttGame.p1Name;
+  document.getElementById('ttt-p2-name').textContent=tttGame.p2Name;
+  document.getElementById('ttt-p1-wins').textContent=tttGame.p1Wins;
+  document.getElementById('ttt-p2-wins').textContent=tttGame.p2Wins;
+  document.getElementById('ttt-round').textContent='R'+tttGame.round;
+  
+  updateTTTTurn();
+  
+  const board=document.getElementById('ttt-board');
+  board.innerHTML=tttGame.board.map((cell,i)=>{
+    const cls=cell?'ttt-cell filled '+cell.toLowerCase():'ttt-cell';
+    return `<div class="${cls}" onclick="placeTTT(${i})">${cell}</div>`;
+  }).join('');
+}
+
+function updateTTTTurn(){
+  document.getElementById('ttt-player1').classList.toggle('active',tttGame.turn==='X');
+  document.getElementById('ttt-player2').classList.toggle('active',tttGame.turn==='O');
+  const currentName=tttGame.turn==='X'?tttGame.p1Name:tttGame.p2Name;
+  document.getElementById('ttt-status').innerHTML=`${currentName}'s TURN (${tttGame.turn})`;
+}
+
+function placeTTT(index){
+  if(tttGame.gameOver||tttGame.board[index]!=='') return;
+  tttGame.board[index]=tttGame.turn;
+  
+  const winLine=checkTTTWinner();
+  if(winLine){
+    const winner=tttGame.turn;
+    tttGame.gameOver=true;
+    const winnerName=winner==='X'?tttGame.p1Name:tttGame.p2Name;
+    
+    if(winner==='X'){
+      tttGame.p1Wins++;
+      STORE.tttHistory.p1Wins=tttGame.p1Wins;
+    } else {
+      tttGame.p2Wins++;
+      STORE.tttHistory.p2Wins=tttGame.p2Wins;
+    }
+    
+    const totalWins=Math.max(tttGame.p1Wins,tttGame.p2Wins);
+    if(totalWins>STORE.best.ttt) STORE.best.ttt=totalWins;
+    unlockAchv('tttWin');
+    saveData();
+    
+    renderTTT();
+    // Highlight winning cells
+    setTimeout(()=>{
+      winLine.forEach(i=>{
+        const c=document.querySelectorAll('.ttt-cell')[i];
+        if(c) c.classList.add('win');
+      });
+      document.getElementById('ttt-status').innerHTML=`🏆 ${winnerName} WINS!`;
+      document.getElementById('ttt-status').style.background='rgba(255,215,0,0.2)';
+      document.getElementById('ttt-status').style.borderColor='#ffd700';
+      document.getElementById('ttt-status').style.color='#ffd700';
+    },100);
+    return;
+  }
+  
+  if(tttGame.board.every(c=>c!=='')){
+    tttGame.gameOver=true;
+    STORE.tttHistory.draws++;
+    saveData();
+    renderTTT();
+    setTimeout(()=>{
+      document.getElementById('ttt-status').innerHTML=`🤝 DRAW!`;
+      document.getElementById('ttt-status').style.background='rgba(255,255,255,0.1)';
+      document.getElementById('ttt-status').style.borderColor='rgba(255,255,255,0.3)';
+      document.getElementById('ttt-status').style.color='#fff';
+    },100);
+    return;
+  }
+  
+  tttGame.turn=tttGame.turn==='X'?'O':'X';
+  renderTTT();
+}
+
+function checkTTTWinner(){
+  const wins=[
+    [0,1,2],[3,4,5],[6,7,8],
+    [0,3,6],[1,4,7],[2,5,8],
+    [0,4,8],[2,4,6]
+  ];
+  for(const line of wins){
+    const [a,b,c]=line;
+    if(tttGame.board[a]&&tttGame.board[a]===tttGame.board[b]&&tttGame.board[a]===tttGame.board[c]){
+      return line;
+    }
+  }
+  return null;
+}
+
+function resetTTT(){
+  tttGame.board=['','','','','','','','',''];
+  tttGame.turn='X';
+  tttGame.round++;
+  tttGame.gameOver=false;
+  document.getElementById('ttt-status').style.background='rgba(0,255,180,0.1)';
+  document.getElementById('ttt-status').style.borderColor='rgba(0,255,180,0.3)';
+  document.getElementById('ttt-status').style.color='#00ffb4';
+  renderTTT();
+}
+
+// ============ STORAGE (PERSISTENCE) ============
+const STORAGE_KEY='pixelverse_data';
+
+async function saveData(){
+  try{
+    const data={
+      streak:STORE.streak,
+      total:STORE.total,
+      played:STORE.played,
+      best:STORE.best,
+      achievements:{
+        ...STORE.achievements,
+        playedGames:Array.from(STORE.achievements.playedGames)
+      },
+      user:STORE.user,
+      tttHistory:STORE.tttHistory,
+      lastSaved:Date.now()
+    };
+    await window.storage.set(STORAGE_KEY,JSON.stringify(data));
+  }catch(e){console.log('Save failed:',e);}
+}
+
+async function loadData(){
+  try{
+    const result=await window.storage.get(STORAGE_KEY);
+    if(result&&result.value){
+      const data=JSON.parse(result.value);
+      STORE.streak=data.streak||0;
+      STORE.total=data.total||0;
+      STORE.played=data.played||0;
+      STORE.best={reflex:0,memory:0,color:0,ttt:0,...(data.best||{})};
+      if(data.achievements){
+        STORE.achievements={
+          ...STORE.achievements,
+          ...data.achievements,
+          playedGames:new Set(data.achievements.playedGames||[])
+        };
+      }
+      STORE.user=data.user||null;
+      STORE.tttHistory=data.tttHistory||{p1:'',p2:'',p1Wins:0,p2Wins:0,draws:0};
+      return true;
+    }
+  }catch(e){console.log('No saved data yet');}
+  return false;
+}
+
+// ============ LOGIN ============
+function handleEmailLogin(){
+  const name=document.getElementById('login-name').value.trim();
+  const email=document.getElementById('login-email').value.trim();
+  const errEl=document.getElementById('login-err');
+  const nameInput=document.getElementById('login-name');
+  const emailInput=document.getElementById('login-email');
+  
+  errEl.textContent='';
+  nameInput.classList.remove('error');
+  emailInput.classList.remove('error');
+  
+  if(!name||name.length<2){
+    errEl.textContent='⚠️ Please enter your name (min 2 chars)';
+    nameInput.classList.add('error');
+    return;
+  }
+  
+  const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!email||!emailRegex.test(email)){
+    errEl.textContent='⚠️ Please enter a valid email address';
+    emailInput.classList.add('error');
+    return;
+  }
+  
+  STORE.user={
+    type:'email',
+    name:name,
+    email:email,
+    joinedDate:Date.now()
+  };
+  saveData();
+  closeLogin();
+  showToast('👋 Welcome, '+name+'!');
+}
+
+function handleGuestLogin(){
+  const guestId='Player_'+Math.floor(Math.random()*9000+1000);
+  STORE.user={
+    type:'guest',
+    name:guestId,
+    email:null,
+    joinedDate:Date.now()
+  };
+  saveData();
+  closeLogin();
+  showToast('👤 Playing as guest. Sign in anytime!');
+}
+
+function closeLogin(){
+  document.getElementById('login-screen').classList.remove('active');
+  updateHome();
+  renderProfile();
+}
+
+function logout(){
+  if(confirm('Log out? Your scores will be saved on this device but you\'ll see the login screen next time.')){
+    STORE.user=null;
+    saveData();
+    document.getElementById('login-screen').classList.add('active');
+    document.getElementById('login-name').value='';
+    document.getElementById('login-email').value='';
+    document.getElementById('login-err').textContent='';
+    switchScreen('home',document.querySelector('.nav-tab[data-screen="home"]'));
+  }
+}
 
 // SCREEN NAV
 function switchScreen(id,btn){
@@ -495,13 +1007,22 @@ function updateHome(){
   document.getElementById('best-reflex').textContent=STORE.best.reflex;
   document.getElementById('best-memory').textContent=STORE.best.memory;
   document.getElementById('best-color').textContent=STORE.best.color;
+  const tttEl=document.getElementById('best-ttt');
+  if(tttEl) tttEl.textContent=STORE.best.ttt||0;
+  if(STORE.user){
+    const greeting=document.getElementById('wc-greet-text');
+    const name=document.getElementById('wc-name-text');
+    if(greeting) greeting.textContent='Welcome back,';
+    if(name) name.textContent=STORE.user.name+' 🎮';
+  }
 }
 
 // LEADERBOARD
 function renderLeaderboard(){
+  const userName=STORE.user?STORE.user.name:'You';
   const bots=[
     {n:'PixelKing',s:2450},{n:'GhostByte',s:1980},{n:'NeonShadow',s:1720},
-    {n:'You',s:STORE.total,you:true},
+    {n:userName,s:STORE.total,you:true},
     {n:'CryptoNinja',s:920},{n:'QuantumLynx',s:780},{n:'AceWraith',s:640},{n:'VoidWalker',s:510},{n:'GlitchKid',s:380}
   ].sort((a,b)=>b.s-a.s);
   const html=bots.map((b,i)=>{
@@ -518,12 +1039,28 @@ function renderProfile(){
   document.getElementById('prof-total').textContent=STORE.total;
   document.getElementById('prof-best').textContent=Math.max(STORE.best.reflex,STORE.best.memory,STORE.best.color);
 
+  // Update profile header with user info
+  if(STORE.user){
+    const initials=STORE.user.name.substring(0,2).toUpperCase();
+    document.querySelector('.avatar').textContent=initials;
+    document.querySelector('.profile-name').textContent=STORE.user.name;
+    const rankEl=document.querySelector('.profile-rank');
+    if(STORE.user.type==='guest'){
+      rankEl.innerHTML='👤 Guest Player';
+    } else {
+      rankEl.innerHTML='✉️ '+STORE.user.email;
+      rankEl.style.fontSize='11px';
+      rankEl.style.textTransform='none';
+    }
+  }
+
   const achv=[
     {id:'first',icon:'🎯',name:'First Steps',desc:'Play your first game',got:STORE.achievements.first},
     {id:'combo10',icon:'🔥',name:'Combo Master',desc:'Hit a 10x combo in Reflex Rush',got:STORE.achievements.combo10},
     {id:'memMaster',icon:'🧠',name:'Memory Master',desc:'Complete Memory Flip under 30s',got:STORE.achievements.memMaster},
     {id:'colorPro',icon:'🎨',name:'Color Pro',desc:'Get a 15+ streak in Color Tap',got:STORE.achievements.colorPro},
-    {id:'allGames',icon:'🌟',name:'All Rounder',desc:'Play all 3 games',got:STORE.achievements.allGames},
+    {id:'tttWin',icon:'⭕',name:'Champion',desc:'Win your first Tic Tac Toe match',got:STORE.achievements.tttWin},
+    {id:'allGames',icon:'🌟',name:'All Rounder',desc:'Play all games',got:STORE.achievements.allGames},
     {id:'streak3',icon:'📅',name:'Dedicated',desc:'Reach a 3-day streak',got:STORE.achievements.streak3},
   ];
   document.getElementById('achv-list').innerHTML=achv.map(a=>`
@@ -538,13 +1075,20 @@ function renderProfile(){
 function unlockAchv(id){
   if(!STORE.achievements[id]){
     STORE.achievements[id]=true;
+    saveData();
     setTimeout(()=>showToast('🏆 Achievement unlocked!'),600);
   }
 }
 
 // COMMON GAME EXIT
 function exitGame(g){
-  document.getElementById('game-'+g).classList.remove('active');
+  if(g==='ttt-setup'){
+    document.getElementById('game-ttt-setup').classList.remove('active');
+  } else if(g==='ttt'){
+    document.getElementById('game-ttt').classList.remove('active');
+  } else {
+    document.getElementById('game-'+g).classList.remove('active');
+  }
   clearAllTimers();
   document.querySelectorAll('.game-over').forEach(o=>o.classList.remove('active'));
   updateHome();
@@ -557,6 +1101,7 @@ function startGame(g){
   if(STORE.achievements.playedGames.size>=3) unlockAchv('allGames');
   unlockAchv('first');
   STORE.played++;
+  saveData();
 
   document.querySelectorAll('.game-screen').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.game-over').forEach(o=>o.classList.remove('active'));
@@ -658,6 +1203,7 @@ function endReflex(){
   STORE.total+=gameState.score;
   STORE.streak=Math.max(STORE.streak,1);
   if(STORE.streak>=3) unlockAchv('streak3');
+  saveData();
 
   document.getElementById('rr-grade').textContent=grade;
   document.getElementById('rr-grade').style.color=colors[grade];
@@ -730,6 +1276,7 @@ function endMemory(){
   if(isNew) STORE.best.memory=score;
   STORE.total+=score;
   STORE.streak=Math.max(STORE.streak,1);
+  saveData();
 
   document.getElementById('mf-grade').textContent=grade;
   document.getElementById('mf-grade').style.color=colors[grade];
@@ -812,6 +1359,7 @@ function endColor(){
   if(isNew) STORE.best.color=gameState.score;
   STORE.total+=gameState.score;
   STORE.streak=Math.max(STORE.streak,1);
+  saveData();
 
   document.getElementById('ct-grade').textContent=grade;
   document.getElementById('ct-grade').style.color=colors[grade];
@@ -822,5 +1370,12 @@ function endColor(){
 }
 
 // INIT
-updateHome();
+(async function init(){
+  const loaded=await loadData();
+  if(loaded&&STORE.user){
+    // User exists, skip login
+    document.getElementById('login-screen').classList.remove('active');
+  }
+  updateHome();
+})();
 </script>
